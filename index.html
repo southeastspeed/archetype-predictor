@@ -166,6 +166,46 @@ document.getElementById("btn-to-result").addEventListener("click", function() {
   document.getElementById("gate-error").style.display = "none";
   document.getElementById("result-name").textContent = lastResult.name;
   document.getElementById("result-rate").textContent = lastResult.rate;
+  document.getElementById("btn-to-result").addEventListener("click", function() {
+  var name = document.getElementById("athlete-name").value.trim();
+  var email = document.getElementById("parent-email").value.trim();
+  var phone = document.getElementById("phone").value.trim();
+
+  if (!name || !email || !phone) {
+    document.getElementById("gate-error").style.display = "block";
+    return;
+  }
+
+  document.getElementById("gate-error").style.display = "none";
+  document.getElementById("result-name").textContent = lastResult.name;
+  document.getElementById("result-rate").textContent = lastResult.rate;
+  document.getElementById("screen-gate").style.display = "none";
+  document.getElementById("screen-result").style.display = "block";
+
+  fetch("https://formspree.io/f/xeeylrzb", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      phone: phone,
+      predicted_archetype: lastResult.name,
+      pathway_rate: lastResult.rate,
+      message: "Archetype Predictor lead: " + name + " predicted as " + lastResult.name + " (" + lastResult.rate + " pathway rate). Follow up to book $149 Athletic Profiling session."
+    })
+  })
+  .then(function(response) {
+    if (!response.ok) {
+      console.error("Formspree submission failed:", response.status);
+    }
+  })
+  .catch(function(error) {
+    console.error("Formspree network error:", error);
+  });
+});
   document.getElementById("screen-gate").style.display = "none";
   document.getElementById("screen-result").style.display = "block";
 });
