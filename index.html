@@ -164,6 +164,8 @@ document.getElementById("btn-to-result").addEventListener("click", function() {
   }
 
   document.getElementById("gate-error").style.display = "none";
+  document.getElementById("result-name").textContent = lastResult.name;
+  document.getElementById("result-rate").textContent = lastResult.rate;
   document.getElementById("screen-gate").style.display = "none";
   document.getElementById("screen-result").style.display = "block";
 });
