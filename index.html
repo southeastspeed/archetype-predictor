@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>South East Speed — Archetype Predictor</title>
+</head>
+<body>
+
+  <div id="ses-quiz-widget">
+
+    <div id="screen-quiz">
+      <h2>Screen 1: Quiz</h2>
+      <p>(dropdowns and height input will go here later)</p>
+      <button id="btn-to-gate">Next</button>
+    </div>
+
+    <div id="screen-gate" style="display: none;">
+      <h2>Screen 2: Contact Details</h2>
+      <p>(name/email/phone fields will go here later)</p>
+      <button id="btn-to-result">Reveal</button>
+    </div>
+
+    <div id="screen-result" style="display: none;">
+      <h2>Screen 3: Result</h2>
+      <p>(archetype result will go here later)</p>
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("btn-to-gate").addEventListener("click", function() {
+      document.getElementById("screen-quiz").style.display = "none";
+      document.getElementById("screen-gate").style.display = "block";
+    });
+
+    document.getElementById("btn-to-result").addEventListener("click", function() {
+      document.getElementById("screen-gate").style.display = "none";
+      document.getElementById("screen-result").style.display = "block";
+    });
