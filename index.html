@@ -55,11 +55,23 @@
   <button id="btn-to-gate">See my predicted archetype</button>
 </div>
 
-    <div id="screen-gate" style="display: none;">
-      <h2>Screen 2: Contact Details</h2>
-      <p>(name/email/phone fields will go here later)</p>
-      <button id="btn-to-result">Reveal</button>
-    </div>
+<div id="screen-gate" style="display: none;">
+  <h2>Almost there</h2>
+  <p>Enter your details to reveal your predicted archetype.</p>
+
+  <label for="athlete-name">Athlete full name</label><br>
+  <input type="text" id="athlete-name"><br><br>
+
+  <label for="parent-email">Parent email</label><br>
+  <input type="email" id="parent-email"><br><br>
+
+  <label for="phone">Phone</label><br>
+  <input type="tel" id="phone"><br><br>
+
+  <p id="gate-error" style="display:none; color:red;">Please fill in all fields.</p>
+
+  <button id="btn-to-result">Reveal my archetype</button>
+</div>
 
     <div id="screen-result" style="display: none;">
       <h2>Screen 3: Result</h2>
@@ -130,10 +142,20 @@
     document.getElementById("screen-gate").style.display = "block";
   });
 
-  document.getElementById("btn-to-result").addEventListener("click", function() {
-    document.getElementById("screen-gate").style.display = "none";
-    document.getElementById("screen-result").style.display = "block";
-  });
+document.getElementById("btn-to-result").addEventListener("click", function() {
+  var name = document.getElementById("athlete-name").value.trim();
+  var email = document.getElementById("parent-email").value.trim();
+  var phone = document.getElementById("phone").value.trim();
+
+  if (!name || !email || !phone) {
+    document.getElementById("gate-error").style.display = "block";
+    return;
+  }
+
+  document.getElementById("gate-error").style.display = "none";
+  document.getElementById("screen-gate").style.display = "none";
+  document.getElementById("screen-result").style.display = "block";
+});
 </script>
 
 </body>
