@@ -328,6 +328,22 @@ document.getElementById("quiz-error").style.display = "none";
     });
 
     lastResult = bestMatch;
+   
+    fetch("https://formspree.io/f/xeeylrzb", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify({
+    predicted_archetype: lastResult.name,
+    pathway_rate: lastResult.rate,
+    message: "Quiz completed (anonymous): result = " + lastResult.name + " (" + lastResult.rate + "). No contact details captured at this stage."
+  })
+})
+.catch(function(error) {
+  console.error("Formspree network error:", error);
+});
 
     document.getElementById("result-name").textContent = lastResult.name;
     document.getElementById("result-rate").textContent = lastResult.rate;
