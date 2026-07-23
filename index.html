@@ -186,7 +186,7 @@
       <p>Rate yourself honestly against elite U18 footballers.</p>
 
       <label for="height">Height (cm)</label>
-      <input type="number" id="height">
+      <input type="number" id="height" min="160" max="210">
 
       <label for="bestjump">Running vertical jump - preferred leg</label>
       <select id="bestjump">
@@ -329,10 +329,18 @@
     var codVal = document.getElementById("cod").value;
 
     if (!heightCm || !bestjumpVal || !worsejumpVal || !accelVal || !codVal) {
-      document.getElementById("quiz-error").style.display = "block";
-      return;
-    }
-    document.getElementById("quiz-error").style.display = "none";
+  document.getElementById("quiz-error").textContent = "Please fill in all fields.";
+  document.getElementById("quiz-error").style.display = "block";
+  return;
+}
+
+if (heightCm < 160 || heightCm > 210) {
+  document.getElementById("quiz-error").textContent = "Please enter a valid height between 160-210cm.";
+  document.getElementById("quiz-error").style.display = "block";
+  return;
+}
+
+document.getElementById("quiz-error").style.display = "none";
 
     var userVector = [
       heightToPercentile(heightCm),
