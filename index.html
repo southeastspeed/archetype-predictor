@@ -371,10 +371,19 @@
     var name = document.getElementById("athlete-name").value.trim();
     var email = document.getElementById("email").value.trim();
 
-    if (!name || !email) {
-      document.getElementById("gate-error").style.display = "block";
-      return;
-    }
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!name || !email) {
+  document.getElementById("gate-error").textContent = "Please fill in all fields.";
+  document.getElementById("gate-error").style.display = "block";
+  return;
+}
+
+if (!emailPattern.test(email)) {
+  document.getElementById("gate-error").textContent = "Please enter a valid email address.";
+  document.getElementById("gate-error").style.display = "block";
+  return;
+}
 
     document.getElementById("gate-error").style.display = "none";
     document.getElementById("result-name").textContent = lastResult.name;
