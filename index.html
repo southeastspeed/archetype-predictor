@@ -254,7 +254,6 @@
 
     updateProgress(2);
     document.getElementById("screen-quiz").style.display = "none";
-    updateProgress(3);
     document.getElementById("screen-gate").style.display = "block";
   });
 
@@ -271,6 +270,7 @@
     document.getElementById("gate-error").style.display = "none";
     document.getElementById("result-name").textContent = lastResult.name;
     document.getElementById("result-rate").textContent = lastResult.rate;
+    updateProgress(3);
     document.getElementById("screen-gate").style.display = "none";
     document.getElementById("screen-result").style.display = "block";
 
