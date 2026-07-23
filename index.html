@@ -9,11 +9,51 @@
 
   <div id="ses-quiz-widget">
 
-    <div id="screen-quiz">
-      <h2>Screen 1: Quiz</h2>
-      <p>(dropdowns and height input will go here later)</p>
-      <button id="btn-to-gate">Next</button>
-    </div>
+<div id="screen-quiz">
+  <h2>What's your predicted archetype?</h2>
+  <p>Rate yourself honestly against elite U18 footballers.</p>
+
+  <label for="height">Height (cm)</label><br>
+  <input type="number" id="height" placeholder="178"><br><br>
+
+  <label for="bestjump">Vertical jump — your stronger leg</label><br>
+  <select id="bestjump">
+    <option value="90">Best in my club/rep squad — could take a hanger over a contest</option>
+    <option value="75" selected>Clearly above most of my teammates</option>
+    <option value="60">Around the middle of my squad</option>
+    <option value="45">Below most of my teammates</option>
+    <option value="30">One of the weaker in this area on my team</option>
+  </select><br><br>
+
+  <label for="worsejump">Vertical jump — your weaker leg</label><br>
+  <select id="worsejump">
+    <option value="70">Best in my club/rep squad</option>
+    <option value="55" selected>Clearly above most of my teammates</option>
+    <option value="40">Around the middle of my squad</option>
+    <option value="25">Below most of my teammates</option>
+    <option value="10">One of the weaker in this area on my team</option>
+  </select><br><br>
+
+  <label for="accel">Initial acceleration (first 5m)</label><br>
+  <select id="accel">
+    <option value="80">Best in my club/rep squad — first to the footy in a sprint</option>
+    <option value="65" selected>Clearly above most of my teammates</option>
+    <option value="50">Around the middle of my squad</option>
+    <option value="35">Below most of my teammates</option>
+    <option value="20">One of the weaker in this area on my team</option>
+  </select><br><br>
+
+  <label for="cod">Sharp change of direction</label><br>
+  <select id="cod">
+    <option value="80">Best in my club/rep squad — defenders rarely stay with me on a lead</option>
+    <option value="65" selected>Clearly above most of my teammates</option>
+    <option value="50">Around the middle of my squad</option>
+    <option value="35">Below most of my teammates</option>
+    <option value="20">One of the weaker in this area on my team</option>
+  </select><br><br>
+
+  <button id="btn-to-gate">See my predicted archetype</button>
+</div>
 
     <div id="screen-gate" style="display: none;">
       <h2>Screen 2: Contact Details</h2>
