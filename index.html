@@ -48,15 +48,26 @@
   }
 
   #ses-quiz-widget input,
-  #ses-quiz-widget select {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #d8d8d5;
-    border-radius: 6px;
-    font-size: 15px;
-    background: #1a1a1a;
-    color: #ffffff;
-  }
+#ses-quiz-widget select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #d8d8d5;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+#ses-quiz-widget select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
 
   #ses-quiz-widget input:focus,
   #ses-quiz-widget select:focus {
@@ -135,10 +146,14 @@
   }
 
   #ses-quiz-widget input,
-  #ses-quiz-widget select {
-    padding: 14px 12px;
-    font-size: 16px;
-  }
+#ses-quiz-widget select {
+  padding: 12px 12px;
+  font-size: 16px;
+}
+
+#ses-quiz-widget select {
+  padding-right: 40px;
+}
 
   #ses-quiz-widget button,
   #ses-quiz-widget a {
