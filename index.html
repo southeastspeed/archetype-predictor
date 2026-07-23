@@ -206,10 +206,12 @@
         The only way to know for sure is the Athletic Profiling session.
       </p>
 
-      <a href="https://southeastspeed.com.au/contact">
-        Book Athletic Profiling session — $149
-      </a>
-    </div>
+      <button id="btn-book">Book Athletic Profiling session — $149</button>
+
+<div id="booking-confirmation" style="display:none; background:#A50021; color:#fff; padding:16px 20px; border-radius:6px; text-align:center; margin-top:16px;">
+  <p style="margin:0; font-weight:600; font-size:15px;">You're locked in.</p>
+  <p style="margin:6px 0 0; font-size:14px; color:#f7f6f4;">We'll be in touch shortly to confirm your Athletic Profiling session ($149).</p>
+</div>
 
   </div>
 
@@ -254,6 +256,10 @@
   }
 
   var lastResult = null;
+  document.getElementById("btn-book").addEventListener("click", function() {
+  document.getElementById("btn-book").style.display = "none";
+  document.getElementById("booking-confirmation").style.display = "block";
+});
 
   function updateProgress(step) {
     document.getElementById("progress-text").textContent = "Step " + step + " of 3";
