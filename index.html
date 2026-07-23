@@ -68,17 +68,73 @@
 
   </div>
 
-  <script>
-    document.getElementById("btn-to-gate").addEventListener("click", function() {
-      document.getElementById("screen-quiz").style.display = "none";
-      document.getElementById("screen-gate").style.display = "block";
+<script>
+  var ARCHETYPES = [
+    {name:"The Tower",            rate:"6%",  v:[81,45,15,22,16]},
+    {name:"The Live Wire",        rate:"7%",  v:[19,49,22,37,72]},
+    {name:"The Foundation",       rate:"4%",  v:[43,30,10,37,30]},
+    {name:"The Complete Package", rate:"25%", v:[77,76,45,69,70]},
+    {name:"The Launchpad",        rate:"19%", v:[76,80,47,66,27]},
+    {name:"The Engine Room",      rate:"8%",  v:[38,73,40,24,44]},
+    {name:"The Accelerator",      rate:"16%", v:[31,64,26,78,71]},
+    {name:"The X-Factor",         rate:"22%", v:[32,88,71,75,80]}
+  ];
+
+  function heightToPercentile(cm) {
+    // rough cm -> percentile for your cohort, straight-line between points
+    var table = [[165,20],[180,50],[195,80]];
+    if (cm <= table[0][0]) return table[0][1];
+    if (cm >= table[2][0]) return table[2][1];
+    for (var i = 0; i < table.length - 1; i++) {
+      var a = table[i], b = table[i+1];
+      if (cm >= a[0] && cm <= b[0]) {
+        var t = (cm - a[0]) / (b[0] - a[0]);
+        return Math.round(a[1] + t * (b[1] - a[1]));
+      }
+    }
+  }
+
+  var lastResult = null;
+
+  document.getElementById("btn-to-gate").addEventListener("click", function() {
+    var heightCm = parseFloat(document.getElementById("height").value);
+    var userVector = [
+      heightToPercentile(heightCm),
+      parseInt(document.getElementById("bestjump").value),
+      parseInt(document.getElementById("worsejump").value),
+      parseInt(document.getElementById("accel").value),
+      parseInt(document.getElementById("cod").value)
+    ];
+
+    var bestMatch = null;
+    var smallestDistance = Infinity;
+
+    ARCHETYPES.forEach(function(a) {
+      var distance = 0;
+      for (var i = 0; i < 5; i++) {
+        distance += Math.pow(userVector[i] - a.v[i], 2);
+      }
+      distance = Math.sqrt(distance);
+
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        bestMatch = a;
+      }
     });
 
-    document.getElementById("btn-to-result").addEventListener("click", function() {
-      document.getElementById("screen-gate").style.display = "none";
-      document.getElementById("screen-result").style.display = "block";
-    });
-  </script>
+    lastResult = bestMatch;
+    console.log("User vector:", userVector);
+    console.log("Predicted archetype:", bestMatch.name, bestMatch.rate);
+
+    document.getElementById("screen-quiz").style.display = "none";
+    document.getElementById("screen-gate").style.display = "block";
+  });
+
+  document.getElementById("btn-to-result").addEventListener("click", function() {
+    document.getElementById("screen-gate").style.display = "none";
+    document.getElementById("screen-result").style.display = "block";
+  });
+</script>
 
 </body>
 </html>
