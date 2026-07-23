@@ -9,7 +9,7 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: radial-gradient(circle at 50% 30%, #A50021 0%, #1a1a1a 40%, #000000 100%);  
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 60%, #A50021 150%); 
     color: #ffffff;
     margin: 0;
     padding: 40px 16px;
@@ -134,20 +134,20 @@
       <label for="height">Height (cm)</label>
       <input type="number" id="height">
 
-      <label for="bestjump">Vertical jump — your stronger leg</label>
+      <label for="bestjump">Running vertical jump - preferred leg</label>
       <select id="bestjump">
         <option value="" selected disabled>Select one</option>
-        <option value="90">Best in my club squad — could take a hanger over a contest</option>
+        <option value="90">Best in my squad - can out-jump anyone</option>
         <option value="75">Clearly above most of my teammates</option>
         <option value="60">Around the middle of my squad</option>
         <option value="45">Below most of my teammates</option>
         <option value="30">One of the weaker in this area on my team</option>
       </select>
 
-      <label for="worsejump">Vertical jump — your weaker leg</label>
+      <label for="worsejump">Running vertical jump - non-preferred leg</label>
       <select id="worsejump">
         <option value="" selected disabled>Select one</option>
-        <option value="70">Best in my club squad</option>
+        <option value="70">Best in my squad</option>
         <option value="55">Clearly above most of my teammates</option>
         <option value="40">Around the middle of my squad</option>
         <option value="25">Below most of my teammates</option>
@@ -157,7 +157,7 @@
       <label for="accel">Initial acceleration (first 10m)</label>
       <select id="accel">
         <option value="" selected disabled>Select one</option>
-        <option value="80">Best in my club squad — first to the footy in a sprint</option>
+        <option value="80">Best in my squad - first to the footy in a sprint</option>
         <option value="65">Clearly above most of my teammates</option>
         <option value="50">Around the middle of my squad</option>
         <option value="35">Below most of my teammates</option>
@@ -167,7 +167,7 @@
       <label for="cod">Sharp change of direction</label>
       <select id="cod">
         <option value="" selected disabled>Select one</option>
-        <option value="80">Best in my club squad — defenders rarely stay with me on a lead</option>
+        <option value="80">Best in my squad - opposition can't lay a hand on me</option>
         <option value="65">Clearly above most of my teammates</option>
         <option value="50">Around the middle of my squad</option>
         <option value="35">Below most of my teammates</option>
@@ -225,7 +225,7 @@
   ];
 
   function heightToPercentile(cm) {
-    var table = [[165,20],[180,50],[195,80]];
+    var table = [[178,20],[184.5,50],[191,80]];
     if (cm <= table[0][0]) return table[0][1];
     if (cm >= table[2][0]) return table[2][1];
     for (var i = 0; i < table.length - 1; i++) {
