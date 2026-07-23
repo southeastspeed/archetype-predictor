@@ -18,7 +18,7 @@
   #ses-quiz-widget {
     max-width: 480px;
     margin: 0 auto;
-    background: #ffffff;
+    background: #f7f6f4;
     border-radius: 12px;
     padding: 32px 28px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
@@ -175,11 +175,8 @@
   <label for="athlete-name">Athlete full name</label><br>
   <input type="text" id="athlete-name"><br><br>
 
-  <label for="parent-email">Parent email</label><br>
-  <input type="email" id="parent-email"><br><br>
-
-  <label for="phone">Phone</label><br>
-  <input type="tel" id="phone"><br><br>
+  <label for="email">Email</label><br>
+  <input type="email" id="email"><br><br>
 
   <p id="gate-error" style="display:none; color:red;">Please fill in all fields.</p>
 
@@ -298,7 +295,6 @@
       body: JSON.stringify({
         name: name,
         email: email,
-        phone: phone,
         predicted_archetype: lastResult.name,
         pathway_rate: lastResult.rate,
         message: "Archetype Predictor lead: " + name + " predicted as " + lastResult.name + " (" + lastResult.rate + " pathway rate). Follow up to book $149 Athletic Profiling session."
