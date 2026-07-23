@@ -232,7 +232,8 @@
         <p style="margin:0; font-weight:600; font-size:15px;">Thanks - I'll be in touch to lock in your Athletic Profiling session</p>
       </div>
   </div>
-
+  </div>
+    
 <script>
   var ARCHETYPES = [
   {name:"The Tower", rate:"6%", v:[81,45,15,22,16],
@@ -282,7 +283,7 @@
     }
   }
 
-  document.getElementById("btn-to-gate").addEventListener("click", function() {
+  document.getElementById("btn-to-result").addEventListener("click", function() {
     var heightCm = parseFloat(document.getElementById("height").value);
     var bestjumpVal = document.getElementById("bestjump").value;
     var worsejumpVal = document.getElementById("worsejump").value;
@@ -359,7 +360,7 @@ document.getElementById("quiz-error").style.display = "none";
     document.getElementById("booking-form").style.display = "block";
   });
   
-  document.getElementById("btn-to-submit-booking").addEventListener("click", function() {
+  document.getElementById("btn-submit-booking").addEventListener("click", function() {
     var name = document.getElementById("athlete-name").value.trim();
     var email = document.getElementById("email").value.trim();
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
